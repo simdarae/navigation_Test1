@@ -11,6 +11,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    //test
     @IBOutlet weak var value_num: UILabel!
     
     override func viewDidLoad() {
