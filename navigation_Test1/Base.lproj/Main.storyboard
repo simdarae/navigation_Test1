@@ -17,27 +17,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWu-0X-26y">
-                                <rect key="frame" x="85" y="157" width="148" height="88"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TcE-08-zM4">
-                                <rect key="frame" x="83" y="280" width="150" height="83"/>
-                                <state key="normal" title="Next" backgroundImage="%ED%88%AC%EB%AA%85%EB%B0%B0%EA%B2%BD%ED%99%94%EC%82%B4%ED%91%9C(red).png"/>
-                                <connections>
-                                    <action selector="BtnNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E0c-V2-f9j"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8f-Pf-j0o">
-                                <rect key="frame" x="85" y="157" width="148" height="88"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="CbA-Ga-cTb">
+                                <rect key="frame" x="106" y="173" width="100" height="134"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWu-0X-26y">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="54"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TcE-08-zM4">
+                                        <rect key="frame" x="0.0" y="84" width="100" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="cau-Ny-FuZ"/>
+                                            <constraint firstAttribute="width" constant="100" id="yDV-hh-AyW"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="%ED%88%AC%EB%AA%85%EB%B0%B0%EA%B2%BD%ED%99%94%EC%82%B4%ED%91%9C(red).png"/>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="x8H-6y-9K3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CbA-Ga-cTb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="2Fj-Kk-9FY"/>
+                            <constraint firstItem="CbA-Ga-cTb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="K4l-5R-etR"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ygN-zv-H2y">
                         <barButtonItem key="rightBarButtonItem" title="처음으로" id="JSH-VU-1iy">
@@ -49,13 +56,12 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="resetBtn" destination="JSH-VU-1iy" id="rqr-ya-NKf"/>
-                        <outlet property="value_han" destination="O8f-Pf-j0o" id="eMM-rc-Kz9"/>
                         <outlet property="value_num" destination="JWu-0X-26y" id="Jy0-oz-cGS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1077" y="281"/>
+            <point key="canvasLocation" x="1142" y="295"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5rQ-Ii-7rZ">
@@ -80,4 +86,7 @@
     <resources>
         <image name="%ED%88%AC%EB%AA%85%EB%B0%B0%EA%B2%BD%ED%99%94%EC%82%B4%ED%91%9C(red).png" width="358" height="257"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="hjR-6g-dUa"/>
+    </inferredMetricsTieBreakers>
 </document>

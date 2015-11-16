@@ -408,6 +408,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "tv.xnrnd.sample.navigation-Test1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -419,6 +420,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "tv.xnrnd.sample.navigation-Test1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -489,6 +491,7 @@
 				75225C241BE77031002022DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		75225C251BE77031002022DD /* Build configuration list for PBXNativeTarget "navigation_Test1Tests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +500,7 @@
 				75225C271BE77031002022DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		75225C281BE77031002022DD /* Build configuration list for PBXNativeTarget "navigation_Test1UITests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +509,7 @@
 				75225C2A1BE77031002022DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
