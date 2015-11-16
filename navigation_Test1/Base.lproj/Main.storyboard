@@ -30,12 +30,26 @@
                                     <action selector="BtnNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E0c-V2-f9j"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8f-Pf-j0o">
+                                <rect key="frame" x="85" y="157" width="148" height="88"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ygN-zv-H2y"/>
+                    <navigationItem key="navigationItem" id="ygN-zv-H2y">
+                        <barButtonItem key="rightBarButtonItem" title="처음으로" id="JSH-VU-1iy">
+                            <connections>
+                                <action selector="reset:" destination="BYZ-38-t0r" id="890-yM-2Ra"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="resetBtn" destination="JSH-VU-1iy" id="rqr-ya-NKf"/>
+                        <outlet property="value_han" destination="O8f-Pf-j0o" id="eMM-rc-Kz9"/>
                         <outlet property="value_num" destination="JWu-0X-26y" id="Jy0-oz-cGS"/>
                     </connections>
                 </viewController>

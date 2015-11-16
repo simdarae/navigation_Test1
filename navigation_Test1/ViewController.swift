@@ -13,9 +13,13 @@ class ViewController: UIViewController {
 
     //test
     @IBOutlet weak var value_num: UILabel!
+    @IBOutlet weak var value_han: UILabel!
+    @IBOutlet weak var resetBtn: UIBarButtonItem!
     
     override func viewDidLoad() {
+        print("viewDidLoad")
         super.viewDidLoad()
+        self.changelange()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -25,40 +29,58 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        print("viewWillAppear")
+        
+        if (self.navigationController!.viewControllers.count == 1) {
+           resetBtn.enabled = false
+        }
+        
         let depth : String = String(self.navigationController!.viewControllers.count)
         
-        value_num.text = String(depth)
+        value_han.text = self.intToHangul(self.navigationController!.viewControllers.count)
+        value_num.text = String(self.navigationController!.viewControllers.count)
         self.navigationController?.title = String(depth)
+        
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        if UIDevice.currentDevice().orientation.isLandscape.boolValue {
-            print("landscape")
-            let depth : String = String(self.navigationController!.viewControllers.count)
-            var i=0;
-            var str : String = "";
+        print("viewWillTransitionToSize")
+        self.changelange()
+    }
+    
+    func changelange() {
+        
+        print("changelange")
+        let deviceOrientation : UIDeviceOrientation = UIDevice.currentDevice().orientation
+        
+        /*
+        if (deviceOrientation == .LandscapeLeft || deviceOrientation == .LandscapeRight) {
+        //if UIDevice.currentDevice().orientation.isLandscape.boolValue {
+            print("가로")
             
-            print(depth.characters.count)
-            
-            
-            for(i=0; i<depth.characters.count; i++)
-            {
-                str =  str + self.translate(self.navigationController!.viewControllers.count, level: i)
-            }
-            
-            print(str)
-            
-            value_num.text = String(str)
-            self.navigationController?.title = String(str)
+            value_han.text = self.intToHangul(self.navigationController!.viewControllers.count)
+            value_num.text = String(self.navigationController!.viewControllers.count)
+            self.navigationController?.title = self.intToHangul(self.navigationController!.viewControllers.count)
             
         } else {
-            print("portraight")
+            print("세로")
             
-            let depth : String = String(self.navigationController!.viewControllers.count)
-            
-            value_num.text = String(depth)
-            self.navigationController?.title = String(depth)
+            value_han.text = self.intToHangul(self.navigationController!.viewControllers.count)
+            value_num.text = String(self.navigationController!.viewControllers.count)
+        }*/
+        
+        if (deviceOrientation == .LandscapeLeft || deviceOrientation == .LandscapeRight) {
+            value_num.alpha = 0.0
+            value_han.alpha = 1.0
         }
+        else {
+            value_num.alpha = 1.0
+            value_han.alpha = 0.0
+        }
+    }
+    
+    @IBAction func reset(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
 
     @IBAction func BtnNext(sender: AnyObject) {
@@ -66,36 +88,38 @@ class ViewController: UIViewController {
         let viewController : ViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ViewController") as! ViewController
         
         self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func intToHangul(num: Int) -> String {
+        let x0 : [String] = ["", "", "이", "삼", "사", "오", "육", "칠", "팔", "구"]
+        let x1 : [String] = ["", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구"]
+        let x10 : [String] = ["", "십", "백", "천"]
+        let x10000 : [String] = ["", "만", "억", "조", "경"]
         
-        if UIDevice.currentDevice().orientation.isLandscape.boolValue {
-            print("landscape")
-            let depth : String = String(self.navigationController!.viewControllers.count)
-            var i=0;
-            var str : String = "";
+        var currentPos = 0
+        var remainNum = num
+        var han : String = ""
+        
+        while (true) {
+            let digit = remainNum % 10
+            remainNum = remainNum / 10
             
-            print(depth.characters.count)
-            
-            
-            for(i=0; i<depth.characters.count; i++)
-            {
-                str =  str + self.translate(self.navigationController!.viewControllers.count, level: i)
+            if ((currentPos % 4) == 0) {
+                han = x1[digit] + x10000[currentPos / 4] + han
+            }
+            else {
+                han = x0[digit] + x10[currentPos % 4] + han
             }
             
-            print(str)
-            
-            value_num.text = String(str)
-            self.navigationController?.title = String(str)
-            
-        } else {
-            print("portraight")
-            
-            let depth : String = String(self.navigationController!.viewControllers.count)
-            
-            value_num.text = String(depth)
-            self.navigationController?.title = String(depth)
+            if (remainNum == 0) {
+                break
+            }
+            currentPos += 1
         }
-
+        
+        return han
     }
+
     
     func translate(Number : Int, level : Int) -> String {
         
