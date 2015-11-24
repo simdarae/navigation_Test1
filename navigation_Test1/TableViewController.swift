@@ -43,7 +43,11 @@ class TableViewController: UITableViewController {
         
         return tableCount
     }
-
+    
+//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return tableCount
+//    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         print("1111")
