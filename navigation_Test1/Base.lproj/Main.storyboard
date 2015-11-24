@@ -80,7 +80,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="mWa-9g-Eur">
+                            <tableViewCell clipsSubviews="YES" tag="100" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FruitCell" id="mWa-9g-Eur">
                                 <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mWa-9g-Eur" id="rpQ-f0-JXg">
@@ -96,16 +96,19 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Table View" id="BNb-lG-zGY"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="table" destination="GXs-Sg-v9M" id="Qx8-fo-6HD"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QQm-if-Pw1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2090" y="289"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Number List-->
         <scene sceneID="vBE-YJ-VWJ">
             <objects>
                 <navigationController storyboardIdentifier="TableViewController" id="wzm-Li-CnZ" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="L81-BQ-wkX"/>
+                    <navigationItem key="navigationItem" title="Number List" id="L81-BQ-wkX"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BAB-PD-u1Y">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

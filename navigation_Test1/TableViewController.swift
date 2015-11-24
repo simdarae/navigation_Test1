@@ -13,6 +13,7 @@ var tableCount = 0;
 
 class TableViewController: UITableViewController {
     
+    @IBOutlet var table: UITableView!
     
     override func viewDidLoad() {
         print("1")
@@ -29,31 +30,30 @@ class TableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    var data = ["Apple", "Apricot", "Banana", "Blueberry", "Cantaloupe", "Cherry",
-        "Clementine", "Coconut", "Cranberry", "Fig", "Grape", "Grapefruit",
-        "Kiwi fruit", "Lemon", "Lime", "Lychee", "Mandarine", "Mango",
-        "Melon", "Nectarine", "Olive", "Orange", "Papaya", "Peach",
-        "Pear", "Pineapple", "Raspberry", "Strawberry"]
-    
     // MARK: - UITableViewDataSource
     
     override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
         print("numberOfSectionsInTableView call")
-        //        return Business.count
         
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(tableCount)
         return tableCount
     }
     
-//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return tableCount
-//    }
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        print("1111")
-        let cell = tableView.dequeueReusableCellWithIdentifier("FruitCell", forIndexPath: indexPath)
-        cell.textLabel?.text = data[indexPath.row]
+        let cell = table.dequeueReusableCellWithIdentifier("FruitCell", forIndexPath: indexPath)
+        cell.textLabel?.text = "\(indexPath.row + 1)"
         return cell
     }
+    
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        let top = self.presentViewController as? UINavigationController
+//        
+//        presentingViewController?.dismissViewControllerAnimated(true, { () Void in
+//    }
 }
     
