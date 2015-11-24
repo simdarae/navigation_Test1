@@ -50,16 +50,17 @@ class TableViewController: UITableViewController {
         return cell
     }
     
-//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        //내가 프리젠트 한 사람이 누구냐
-//        let topView = self.presentViewController as? UINavigationController
-//        
-//        //나를 프리젠트 한 사람이 누구냐
-//        presentingViewController?.dismissViewControllerAnimated(true, { () Void in
-//            
-//            topView.pop
-//        })
-//    }
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //내가 프리젠트 한 사람이 누구냐
+        let topView = self.presentingViewController as? UINavigationController
+        
+        //나를 프리젠트 한 사람이 누구냐
+        presentingViewController?.dismissViewControllerAnimated(true) { () -> Void in
+            assert(topView!.viewControllers.count > indexPath.row)
+            
+            topView!.popToViewController(topView!.viewControllers[indexPath.row], animated: true)
+        }
+    }
     
     //메뉴가 있는 view : splitView
 }
