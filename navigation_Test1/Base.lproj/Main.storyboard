@@ -28,12 +28,14 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TcE-08-zM4">
                                         <rect key="frame" x="0.0" y="84" width="100" height="50"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="cau-Ny-FuZ"/>
                                             <constraint firstAttribute="width" constant="100" id="yDV-hh-AyW"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="%ED%88%AC%EB%AA%85%EB%B0%B0%EA%B2%BD%ED%99%94%EC%82%B4%ED%91%9C(red).png"/>
                                         <connections>
+                                            <outletCollection property="gestureRecognizers" destination="qNa-OI-JEr" appends="YES" id="l9R-Nd-sXK"/>
                                             <segue destination="BYZ-38-t0r" kind="show" id="x8H-6y-9K3"/>
                                         </connections>
                                     </button>
@@ -57,11 +59,65 @@
                     <connections>
                         <outlet property="resetBtn" destination="JSH-VU-1iy" id="rqr-ya-NKf"/>
                         <outlet property="value_num" destination="JWu-0X-26y" id="Jy0-oz-cGS"/>
+                        <segue destination="wzm-Li-CnZ" kind="push" id="SMn-oc-IAY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="qNa-OI-JEr">
+                    <connections>
+                        <action selector="handleGesture:" destination="BYZ-38-t0r" id="25j-bq-i4I"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1142" y="295"/>
+            <point key="canvasLocation" x="1100" y="289"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="RgT-OO-sqy">
+            <objects>
+                <tableViewController title="Table View Controller" id="KSB-63-SEi" customClass="TableViewController" customModule="navigation_Test1" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="GXs-Sg-v9M">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="mWa-9g-Eur">
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mWa-9g-Eur" id="rpQ-f0-JXg">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="KSB-63-SEi" id="gje-ve-jtl"/>
+                            <outlet property="delegate" destination="KSB-63-SEi" id="LF8-F9-vu4"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Table View" id="BNb-lG-zGY"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QQm-if-Pw1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2090" y="289"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vBE-YJ-VWJ">
+            <objects>
+                <navigationController storyboardIdentifier="TableViewController" id="wzm-Li-CnZ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="L81-BQ-wkX"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BAB-PD-u1Y">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="KSB-63-SEi" kind="relationship" relationship="rootViewController" id="0G0-dY-wTC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tBM-I6-Lsq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1664" y="289"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5rQ-Ii-7rZ">

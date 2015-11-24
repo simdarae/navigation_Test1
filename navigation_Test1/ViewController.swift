@@ -8,6 +8,7 @@
 
 import UIKit
 
+var Count = 0;
 
 class ViewController: UIViewController {
 
@@ -36,6 +37,29 @@ class ViewController: UIViewController {
         
     }
     
+    func SetCount(count: Int) {
+        Count = count;
+    }
+    
+    func GetCount() -> Int {
+        return Count;
+    }
+
+    
+    @IBAction func handleGesture(sender: AnyObject) {
+        
+        if sender.state == UIGestureRecognizerState.Began
+        {
+            print("handleGesture")
+            let tableController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TableViewController") as! UINavigationController
+            
+            //let action = AppDelegate()
+            SetCount(self.navigationController!.viewControllers.count)
+            
+            presentViewController(tableController, animated: true, completion: nil)
+        }
+    }
+    
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         self.changeView()
     }
@@ -54,16 +78,17 @@ class ViewController: UIViewController {
         }
     }
     
+    
     @IBAction func reset(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
 
-//    @IBAction func BtnNext(sender: AnyObject) {
-//        
-//        let viewController : ViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ViewController") as! ViewController
-//        
-//        self.navigationController?.pushViewController(viewController, animated: true)
-//    }
+    @IBAction func BtnNext(sender: AnyObject) {
+        
+        let viewController : ViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
     
     func intToHangul(num: Int) -> String {
         let x0 : [String] = ["", "", "이", "삼", "사", "오", "육", "칠", "팔", "구"]
