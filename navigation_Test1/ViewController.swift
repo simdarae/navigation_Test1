@@ -16,10 +16,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var value_num: UILabel!
     @IBOutlet weak var resetBtn: UIBarButtonItem!
     
+    let notificationCenter = NSNotificationCenter.defaultCenter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -41,8 +44,10 @@ class ViewController: UIViewController {
         Count = count;
     }
     
-    func GetCount() -> Int {
-        return Count;
+    func GetCount(notification: NSNotification) {
+
+        let userInfo = [ "Count": String(self.navigationController!.viewControllers.count)]
+        notificationCenter.postNotificationName("simple-notification2", object: nil, userInfo: userInfo)
     }
 
     
@@ -50,13 +55,17 @@ class ViewController: UIViewController {
         
         if sender.state == UIGestureRecognizerState.Began
         {
-            print("handleGesture")
+            notificationCenter.addObserver(self,
+                selector: "GetCount:",
+                name: "simple-notification",
+                object: nil)
+            
             let tableController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TableViewController") as! UINavigationController
             
-            //let action = AppDelegate()
             SetCount(self.navigationController!.viewControllers.count)
             
             presentViewController(tableController, animated: true, completion: nil)
+            
         }
     }
     

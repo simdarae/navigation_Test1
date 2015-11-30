@@ -11,21 +11,33 @@ import UIKit
 
 var tableCount = 0;
 
+let notificationCenter = NSNotificationCenter.defaultCenter()
+
+
 class TableViewController: UITableViewController {
     
     @IBOutlet var table: UITableView!
     
     override func viewDidLoad() {
-        print("1")
-        super.viewDidLoad()
-        let action = ViewController()
-        tableCount = action.GetCount()
-    
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        notificationCenter.addObserver(self,
+            selector: "setCount:",
+            name: "simple-notification2",
+            object: nil)
+        
+        notificationCenter.postNotificationName("simple-notification", object: nil)
+
     }
     
+    func setCount(notification: NSNotification) {
+        let message: String? = notification.userInfo!["Count"] as? String
+        
+        let a:Int? = Int(message!)
+        tableCount = Int(a!)
+    }
+    
+    
     override func didReceiveMemoryWarning() {
-        print("2")
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -33,15 +45,13 @@ class TableViewController: UITableViewController {
     // MARK: - UITableViewDataSource
     
     override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
-        print("numberOfSectionsInTableView call")
-        
         return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(tableCount)
         return tableCount
     }
+
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6eo-vx-CYj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6eo-vx-CYj">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
@@ -60,6 +60,7 @@
                         <outlet property="resetBtn" destination="JSH-VU-1iy" id="rqr-ya-NKf"/>
                         <outlet property="value_num" destination="JWu-0X-26y" id="Jy0-oz-cGS"/>
                         <segue destination="wzm-Li-CnZ" kind="push" id="SMn-oc-IAY"/>
+                        <segue destination="KSB-63-SEi" kind="show" id="YBZ-tB-NtF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -147,5 +148,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hjR-6g-dUa"/>
+        <segue reference="YBZ-tB-NtF"/>
     </inferredMetricsTieBreakers>
 </document>
