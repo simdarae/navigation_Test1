@@ -123,10 +123,10 @@
             </objects>
             <point key="canvasLocation" x="1664" y="289"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Top Navigation Controller-->
         <scene sceneID="5rQ-Ii-7rZ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6eo-vx-CYj" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6eo-vx-CYj" customClass="TopNavigationController" customModule="navigation_Test1" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IO5-at-jNj">
